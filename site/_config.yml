@@ -8,7 +8,7 @@ owner: Gate42 # or company name
 first_published: 2016 # if migrating another site, the year of your first publish
 email: info@gate42.it
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://gate42.com/" # the base hostname & protocol for your site
+url: "https://gate42.com/site" # the base hostname & protocol for your site
 social:
   #twitter: https://twitter.com/<username>
   github: https://github.com/Gate42
