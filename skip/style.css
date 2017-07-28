@@ -19,6 +19,18 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.logo {
+    width:25%; height:auto;
+}
+
+.input_area {
+    width: 40%;
+}
+
+.button_generate_dim {
+    width: 30%;
+}
+
 #head {
     padding: 2%;
 }

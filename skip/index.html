@@ -18,6 +18,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="./icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="reset.css" rel="stylesheet" type="text/css">
         <link href="normalize.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -25,25 +26,26 @@
         <script type="text/javascript" src="jquery.min.js"></script>
         <script type="text/javascript" src="jquery.qrcode.min.js"></script>
         <script type="text/javascript" src="main.js"></script>
+        <link rel='stylesheet' media='screen and (max-width: 1024px)' href='media.css' />
     </head>
     <body>
         <div id="page">
             <div id="head" class="center">
                 <div id="logo">
-                    <img style="width:25%; height:auto;" src="logo.png">
+                    <img class="logo" src="logo.png">
                 </div>
             </div>
             <div id="content" class="center">
                 <div id="inputInfo">
                     <div class="text">
                         SSID:<br />
-                        <input id="ssid" type="text" class="text" placeholder="Nome della rete" style="width: 60%"><br />
+                        <input id="ssid" type="text" class="text input_area" placeholder="Nome della rete"><br />
                     </div>
                     <div class="text" style="margin-top: 2%;">
                         Password:<br />
-                    <input id="password" type="text" class="text" placeholder="Password della rete" style="width: 60%;"><br />
+                    <input id="password" type="text" class="text input_area" placeholder="Password della rete"><br />
                     </div>
-                    <button id="generate_button" class="text" onclick="generateQrCode()" style="width: 40%; color: white;">GENERA SKIP CODE</button>
+                    <button id="generate_button" class="text" onclick="generateQrCode()" style="color: white;" class="button_generate_dim">GENERA SKIP CODE</button>
                 </div>
             </div>
             <div id="result" class="center" style="display: none; margin-bottom: 2%;">
