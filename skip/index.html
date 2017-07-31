@@ -19,12 +19,12 @@
         <meta name="msapplication-TileImage" content="./icon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="reset.css" rel="stylesheet" type="text/css">
         <link href="normalize.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <link href="style.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="jquery.min.js"></script>
-        <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+        <script type="text/javascript" src="jquery-qrcode.min.js"></script>
+        <script type="text/javascript" src="jspdf.min.js"></script>
         <script type="text/javascript" src="main.js"></script>
         <link rel='stylesheet' media='screen and (max-width: 1024px)' href='media.css' />
     </head>
@@ -49,11 +49,18 @@
                 </div>
             </div>
             <div id="result" class="center" style="display: none; margin-bottom: 2%;">
-                <!---button onclick="downloadQrCode()">Download SkipCode</button><br /><br / -->
                 <div id="qrcode_container" class="center_inner">
                     <div id="qrcode" class="center_qrcode"></div>
                 </div>
+                <button id="generate_button" class="text" style="color: white;" class="button_generate_dim" onclick="downloadQrCode()">DOWNLOAD PDF</button>
             </div>
+            <div id="footer" class="center">
+                <p class="text">
+                    In caso di problemi <a href="mailto:info@gate42.it">clicca qui</a>
+                </p>
+            </div>
+            <img id="img-buffer" style="display: none;" src="logo_qr.png">
+            <div id="canvas-qrcode" style="display: none;"></div>
         </div>        
     </body>
 </html>

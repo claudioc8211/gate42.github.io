@@ -4,6 +4,11 @@
 
 .input_area {
     width: 90%;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    border: 1px solid #000;
+    padding: 5px 10px 5px 10px;
 }
 
 .button_generate_dim {
