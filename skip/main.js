@@ -6,37 +6,45 @@ function generateQrCode() {
     if (ssid == '' || password == '') {
         alert("Completa tutti i campi per genrare il tuo SkipCode")
     } else {
+        var data = {"ssid": ssid, "password": password, "redirectLink": "marcoferraioli.com"};
         $.ajax({
-            url: 'https://api.myjson.com/bins/69fsd',
-            method: 'GET'
-        }).then(function(data) {
-            $('#canvas-qrcode').qrcode({
-                render: 'canvas',
-                minVersion: 1,
-                maxVersion: 40,
-                ecLevel: 'H',
-                left: 0,
-                top: 0,
-                size: 300,
-                fill: '#000',
-                background: '#fff',
-                text: data.skipCode,
-                radius: 0.5,
-                quiet: 0,
-                mode: 4,
-                mSize: 0.25,
-                mPosX: 0.5,
-                mPosY: 0.5,
-                image: document.getElementById("img-buffer")
-            });
-            var canvas = document.getElementById('canvas-qrcode').getElementsByTagName('canvas')[0];
-            var dataUrl = canvas.toDataURL("image/png");
-            var qrcodeimg = document.createElement('img');
-            qrcodeimg.src = dataUrl;
-            qrcodeimg.style.width = '300px';
-            qrcodeimg.style.height = '300px';
-            document.getElementById('qrcode').appendChild(qrcodeimg);
-            $('#result').show();
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            'type': 'POST',
+            'url': 'https://qrskip.herokuapp.com/api/skipcodes',
+            'data': JSON.stringify(data),
+            'dataType': 'json',
+            'success': function(response){
+                $('#canvas-qrcode').qrcode({
+                    render: 'canvas',
+                    minVersion: 1,
+                    maxVersion: 40,
+                    ecLevel: 'H',
+                    left: 0,
+                    top: 0,
+                    size: 300,
+                    fill: '#000',
+                    background: '#fff',
+                    text: response.skipCode,
+                    radius: 0.5,
+                    quiet: 0,
+                    mode: 4,
+                    mSize: 0.25,
+                    mPosX: 0.5,
+                    mPosY: 0.5,
+                    image: document.getElementById("img-buffer")
+                });
+                var canvas = document.getElementById('canvas-qrcode').getElementsByTagName('canvas')[0];
+                var dataUrl = canvas.toDataURL("image/png");
+                var qrcodeimg = document.createElement('img');
+                qrcodeimg.src = dataUrl;
+                qrcodeimg.style.width = '300px';
+                qrcodeimg.style.height = '300px';
+                document.getElementById('qrcode').appendChild(qrcodeimg);
+                $('#result').show();
+            }
         });
     }
 }
