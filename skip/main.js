@@ -1,11 +1,13 @@
 function generateQrCode() {
     $('#result').hide();
+    $('#loader').hide();
     $('#qrcode').empty();
 	var ssid = document.getElementById("ssid").value;
 	var password = document.getElementById("password").value;
     if (ssid == '' || password == '') {
-        alert("Completa tutti i campi per genrare il tuo SkipCode")
+        alert("Completa tutti i campi per generare il tuo SkipCode")
     } else {
+        $('#loader').show();
         var data = {"ssid": ssid, "password": password, "redirectLink": "marcoferraioli.com"};
         $.ajax({
             headers: { 
@@ -43,7 +45,12 @@ function generateQrCode() {
                 qrcodeimg.style.width = '300px';
                 qrcodeimg.style.height = '300px';
                 document.getElementById('qrcode').appendChild(qrcodeimg);
+                $('#loader').hide();
                 $('#result').show();
+            },
+            'error': function(error) {
+                $('#loader').hide();
+                alert('Si &egrave; verificato un errore. Ti preghiamo di riprovare più tardi.');
             }
         });
     }
